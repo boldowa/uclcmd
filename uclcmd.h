@@ -51,6 +51,10 @@
 #define __DECONST(type, var)    ((type)(uintptr_t)(const void *)(var))
 #endif
 
+#ifdef __GNUC__
+#  define __printflike(n, m) __attribute__((format(printf,n,m)))
+#endif
+
 #define UCLCMD_PARSER_FLAGS	UCL_PARSER_KEY_LOWERCASE | \
 		UCL_PARSER_NO_IMPLICIT_ARRAYS | UCL_PARSER_SAVE_COMMENTS
 
